@@ -2,7 +2,8 @@ package edu.kis.vh.stacks.list;
 
 public class StackList {
 
-	Node last;
+    public static final int EMPTY_STACK_INDICATOR = -1;
+    Node last;
 	int i;
 
 	public void pushElement(int i) {
@@ -15,7 +16,7 @@ public class StackList {
 		}
 	}
 
-	public boolean empty() {
+	public boolean isEmpty() {
 		return last == null;
 	}
 
@@ -24,14 +25,14 @@ public class StackList {
 	}
 
 	public int peek() {
-		if (empty())
-			return -1;
+		if (isEmpty())
+			return EMPTY_STACK_INDICATOR;
 		return last.value;
 	}
 
 	public int pop() {
-		if (empty())
-			return -1;
+		if (isEmpty())
+			return EMPTY_STACK_INDICATOR;
 		int ret = last.value;
 		last = last.prev;
 		return ret;
