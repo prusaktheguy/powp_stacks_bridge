@@ -12,8 +12,15 @@ class StacksDemo {
 
     //alt strzałka powoduje przeskakiwanie po aktualnie wyswietlonych plikach (intellij))
     public static void main(String[] args) {
+
         DefaultStacksFactory factory = new DefaultStacksFactory();
-//12 linia usuniecie spacji
+        testStacks(factory);
+
+    }
+
+    private static void testStacks(DefaultStacksFactory factory) {
+
+        //12 linia usuniecie spacji
         Stack[] stacks = {factory.getStandardStack(), factory.getFalseStack(),
                 factory.getFIFOStack(), factory.getHanoiStack()};
 
@@ -33,7 +40,7 @@ class StacksDemo {
 //19-27 poprawa wciecia
         System.out.println("total rejected is "
                 + ((StackHanoi) stacks[3]).reportRejected());
-
     }
+
 
 }

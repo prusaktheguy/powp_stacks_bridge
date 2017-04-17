@@ -2,20 +2,29 @@ package edu.kis.vh.stacks;
 
 public class StackFIFO extends Stack {
 
-    public Stack temp = new Stack();
+    //Enacapsulate Fields ustawiło zmienną na prywatną oraz dodało gettery i settery do niej jak również odpowiednie użycia (intellij)
+    private Stack temp = new Stack();
 
     @Override
     public int pop() {
         while (!isEmpty())
 
-            temp.push(super.pop());
+            getTemp().push(super.pop());
 
-        int ret = temp.pop();
+        int ret = getTemp().pop();
 
-        while (!temp.isEmpty())
+        while (!getTemp().isEmpty())
 
-            push(temp.pop());
+            push(getTemp().pop());
 
         return ret;
+    }
+
+    public Stack getTemp() {
+        return temp;
+    }
+
+    public void setTemp(Stack temp) {
+        this.temp = temp;
     }
 }

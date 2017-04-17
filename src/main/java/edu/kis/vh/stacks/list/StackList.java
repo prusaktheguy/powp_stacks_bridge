@@ -2,17 +2,17 @@ package edu.kis.vh.stacks.list;
 
 public class StackList {
 
-    public static final int EMPTY_STACK_INDICATOR = -1;
-    Node last;
-	int i;
+	private static final int EMPTY_STACK_INDICATOR = -1;
+	private Node last;
+
 
 	public void pushElement(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+			last.setNext(new Node(i));
+			last.getNext().setPrev(last);
+			last = last.getNext();
 		}
 	}
 
@@ -27,14 +27,14 @@ public class StackList {
 	public int peek() {
 		if (isEmpty())
 			return EMPTY_STACK_INDICATOR;
-		return last.value;
+		return last.getValue();
 	}
 
 	public int pop() {
 		if (isEmpty())
 			return EMPTY_STACK_INDICATOR;
-		int ret = last.value;
-		last = last.prev;
+		int ret = last.getValue();
+		last = last.getPrev();
 		return ret;
 	}
 
