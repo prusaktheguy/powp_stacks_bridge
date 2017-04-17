@@ -2,7 +2,10 @@ package edu.kis.vh.stacks.demo;
 
 import edu.kis.vh.stacks.StackHanoi;
 import edu.kis.vh.stacks.Stack;
+import edu.kis.vh.stacks.factory.ArrayStacksFactory;
 import edu.kis.vh.stacks.factory.DefaultStacksFactory;
+import edu.kis.vh.stacks.factory.IStacksFactory;
+import edu.kis.vh.stacks.factory.ListStacksFactory;
 
 class StacksDemo {
 //używam intellij
@@ -14,11 +17,15 @@ class StacksDemo {
     public static void main(String[] args) {
 
         DefaultStacksFactory factory = new DefaultStacksFactory();
+        ListStacksFactory listfactory = new ListStacksFactory();
+        ArrayStacksFactory arrayfactory = new ArrayStacksFactory();
         testStacks(factory);
+        testStacks(listfactory);
+        testStacks(arrayfactory);
 
     }
 
-    private static void testStacks(DefaultStacksFactory factory) {
+    private static void testStacks(IStacksFactory factory) {
 
         //12 linia usuniecie spacji
         Stack[] stacks = {factory.getStandardStack(), factory.getFalseStack(),

@@ -1,9 +1,23 @@
 package edu.kis.vh.stacks;
 
+import edu.kis.vh.stacks.implementation.StackArray;
+import edu.kis.vh.stacks.implementation.StackInterface;
+import edu.kis.vh.stacks.implementation.StackList;
+
 public class StackFIFO extends Stack {
 
     //Enacapsulate Fields ustawiło zmienną na prywatną oraz dodało gettery i settery do niej jak również odpowiednie użycia (intellij)
-    private Stack temp = new Stack();
+    //StackArray jest wydajniejszy a rozmiar nie jest problemem w tym wypadku
+    private Stack temp = new Stack( new StackArray());
+
+    public StackFIFO() {
+        super();
+    }
+
+    public StackFIFO(StackInterface stackInterface) {
+        super(stackInterface);
+
+    }
 
     @Override
     public int pop() {
@@ -20,7 +34,7 @@ public class StackFIFO extends Stack {
         return ret;
     }
 
-    public Stack getTemp() {
+    private Stack getTemp() {
         return temp;
     }
 

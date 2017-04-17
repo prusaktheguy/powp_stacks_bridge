@@ -1,12 +1,14 @@
-package edu.kis.vh.stacks.list;
+package edu.kis.vh.stacks.implementation;
 
-public class StackList {
+public class StackList implements StackInterface{
 
-	private static final int EMPTY_STACK_INDICATOR = -1;
 	private Node last;
 
 
-	public void pushElement(int i) {
+
+
+	@Override
+	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
@@ -16,19 +18,25 @@ public class StackList {
 		}
 	}
 
-	private boolean isEmpty() {
+
+
+	@Override
+	public boolean isEmpty() {
 		return last == null;
 	}
 
-	public boolean full() {
+	@Override
+	public boolean isFull() {
 		return false;
 	}
 
-	public int peek() {
-		if (isEmpty())
+	@Override
+	public int top() {
+	if (isEmpty())
 			return EMPTY_STACK_INDICATOR;
 		return last.getValue();
 	}
+
 
 	public int pop() {
 		if (isEmpty())
